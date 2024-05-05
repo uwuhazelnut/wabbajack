@@ -39,15 +39,13 @@ namespace Wabbajack
         {
             if (IsAdmin())
             {
-                var messageBox = MessageBox.Show("Don't run Wabbajack as Admin!", "Error", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly);
-                if (messageBox == MessageBoxResult.OK)
-                {
-                    Environment.Exit(1);
-                }
-                else
-                {
-                    Environment.Exit(1);
-                }
+                var messageBox = MessageBox.Show
+                    (
+                    "The only change made to this version of Wabbajack is that you can use the application even when running it with admin permissions. " +
+                    "I am not responsible if for whatever reason using Wabbajack in admin mode causes any harm to your device. " +
+                    "\n\nPROCEED ONLY IF YOU UNDERSTAND THE RISKS OF LAUNCHING THIS APPLICATION IN ADMIN MODE!",
+                    "Warning", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK, MessageBoxOptions.DefaultDesktopOnly
+                    );
             }
 
             RxApp.MainThreadScheduler = new DispatcherScheduler(Dispatcher.CurrentDispatcher);
